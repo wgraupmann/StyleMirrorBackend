@@ -1,7 +1,7 @@
 # StyleMirrorBackend
 
 <h2>API Key</h2>
-The FAL api key must be stored in a local .env file. Then it can be accessed and configured with "dotenv" via: process.env.API_KEY
+The FAL api key must be stored in a local .env file with the a single line <em>API_KEY=your_api_key_here</em>. Then it can be accessed and configured with "dotenv" via: process.env.API_KEY
 
 <h2>Postman Example</h2>
 The fal-ai/idm-vton docs have default images.
