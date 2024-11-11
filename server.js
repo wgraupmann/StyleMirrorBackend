@@ -4,19 +4,19 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 
 require("dotenv").config();
 
 // alternative is to grab api key secrets from environment with:
-console.log(process.env.API_KEY);
+// console.log(process.env.API_KEY);
 fal.config({
   credentials: process.env.API_KEY,
 });
 
 const app = express();
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // single endpoint
 app.post("/generate", async (req, res) => {
