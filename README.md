@@ -1,3 +1,3 @@
 # StyleMirrorBackend
 
-Backend endpoint to connect with fal api
+API KEY must be stored in a local .env file. Then it will be accessed with the "dotenv" via: process.env.API_KEY
