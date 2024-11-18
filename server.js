@@ -18,35 +18,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// single endpoint
-app.post("/generate", async (req, res) => {
-  const { human_image, garment_image, description } = req.body;
-  const result = await fal.subscribe("fal-ai/idm-vton", {
-    // example placeholder
-    // input: {
-    //   human_image_url: "https://idm-vton.github.io/inthewild/4/h/0.jpeg",
-    //   garment_image_url: "https://idm-vton.github.io/inthewild/4/c2/c2.jpeg",
-    //   description: "Short Sleeve Round Neck T-shirts",
-    // },
-    // TODO: use images passed from frontend for image sources
-    input: {
-      human_image_url: human_image,
-      garment_image_url: garment_image,
-      description: description,
-    },
-    logs: true,
-    onQueueUpdate: (update) => {
-      if (update.status === "IN_PROGRESS") {
-        update.logs.map((log) => log.message).forEach(console.log);
-      }
-    },
-  });
-  console.log(result.data);
-  console.log(result.requestId);
-  // image object stores: url, content_type, file_name, file_size, width, height
-  res.json({ image: result.data.image });
-});
-
 app.post("/submit", async (req, res) => {
   const { human_image, garment_image, description } = req.body;
   const { request_id } = await fal.queue.submit("fal-ai/idm-vton", {
