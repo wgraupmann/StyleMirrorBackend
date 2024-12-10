@@ -139,3 +139,6 @@ if (result != null) {
   <li>Handle errors gracefully and inform users if processing fails.</li>
 </ul>
 
+<h3>December 10th Update</h3>
+<p>Attempted to use S3 bucket, however, ran into issues and switched to Firebase</p>
+
